@@ -1,0 +1,11 @@
+<%= form_with(url: "/", method: "get") do %>
+  <%= label_tag 'id' , 'User id' %>
+  <%= text_field_tag 'id' %>
+  <%= submit_tag 'Get photos' %>
+<% end %>
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <img src='https://live.staticflickr.com/<%= "#{photo['server']}/#{photo['id']}_#{photo['secret']}_q.jpg" %>'>
+  <% end %>
+<% end %>
